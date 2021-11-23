@@ -1,7 +1,5 @@
 # Data Dashboard
 
-Aplicación para la visualización y manipulación de datos de los alumnos inscritos en un bootcamp.
-
 ---
 Índice
 
@@ -15,7 +13,7 @@ Aplicación para la visualización y manipulación de datos de los alumnos inscr
 
 ## 1. Descripción
 
-Aplicación web de un Data Dashboard "tablero de datos"  a Coding Bootcamp School specially the  students progress on the study platform.
+Aplicación web para la visualización y manipulación de datos de los alumnos inscritos en Coding Bootcamp School, especialente para la visualización del progreso de los temas vistos.
 
 ---
 
@@ -66,9 +64,10 @@ La solución es un control de mando de datos, Data Dashboard, que les permita vi
 
 ---
 
-## 5. Prodcuto
+## 5. Producto
 
 * Aquí la liga del producto terminado:
+
 
 ---
 
