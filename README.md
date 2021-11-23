@@ -1,16 +1,15 @@
-# 06_Students_data-analitics
+# Data Dashboard
+---
 
-![gaming](https://media.giphy.com/media/UEGwYCVTBFa9tJEf66/giphy.gif)
 
-Every day we generate 2.5 trillion bytes of data, an unprecedented number. However, data alone is of little use. To transform data into information we need to process and understand it. A very simple way to do this is by creating visualizations. Today's leading companies generate dynamic visualizations of their data that allow them to better understand their business and make appropriate decisions. In this project you will have your first approach to transforming data into information by creating your first **data dashboard** . If we think of a dashboard we can think as a control board of a car or an airplane. A space from which a user can have access to the most relevant information and controls, in this case, of the vehicle he is using. The dashboard of a car allows the driver to know how fast he is going, what gear / speed he is using, how much fuel he has available, what is the temperature of the engine, how many revolutions per minute the wheels make, how much distance he has traveled, etc... Like this a data dashboard should allow the users to see the important info and the numbers that matters.
 
 ---
 Índice
 
     1. Description
     2. User Definition & User Stories (UX)
-    3. Aceptance Criteria
-    4. Technical Requirements
+    3. Diagrama de flujo
+    4. Maquetado 
     5. Hacker edition
     6. Expected Learning Outcomes
 ---
@@ -46,49 +45,18 @@ The interface should allow the user:
 * Hacker Edition
 ---
 
-## 4. Technical Requeriments /
+## 4. Maquetado /
+![Login](./data/imágenes/Pantalla1.png)
+Pantalla inicial de LogIn.
 
-- Pair team programming
-- Fork this repository and clone your own, choose who will be the owner of the repository of the pair team.
-- Start working doing ` npm init `
-- Set a .gitignore file to avoid the node_modules to be uploaded in GitHub.
-- Create the Release branch (to deliver and deploy) and the Development branch (to work on it daily).
-- Make a full responsive website considering responsive site for all devices.
-- Follow up Semantic HTML rules, have header, navigation bar, main, sections, asides, footer, etc.
-- Create an Assets folder to store the assets of the site.
-- Document every Agile SDLC steps on ReadMe.md. During the planning step document a screenshot of your Backlog & the prioritized agenda per each one.
-- Use Bootstrap Framework to speed your UI coding. Bootstrap is the unique library allowed.
-- Two sprints of one week each one with Bilingual demo on Thursdays by 10am.
-- For the second Demo, be ready to have testing users that will test your product and see your demo.
+![Sucursales](./data/imágenes/Pantalla2.png)
+Segunda pantalla de Sucursales.
 
-In classroom:
-- Install a testing framework.
-- Install dependencies with ` npm install `
-- Plan and execute Unit Testing
-- Run Unit testing with ` npm test `
+![Datos](./data/imágenes/Pantalla3.png)
+Tercer pantalla de visualización de datos y gráficas.
 
-The _boilerplate_ should contains a file structure as a starting point like thisas all the sample dependencies and tests configuration:
+---
 
-```text
-./
-├── .editorconfig
-├── .eslintrc
-├── .gitignore
-├── README.md
-├── package.json
-├── assets
-└── data
-    ├── students.json
-├── src
-│   ├── app.js
-│   ├── data.js
-│   ├── index.html
-│   ├── index.js
-│   └── style.css
-└── test
-    ├── app.spec.js
-    └── index.html
-```
 ### Scripts / Files
 
 * `README.md`: should explain how to download, install and run the application as well as an introduction to the application, its functionality and decisions about design they took.
