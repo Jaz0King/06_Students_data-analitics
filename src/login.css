@@ -5,6 +5,12 @@
 }
 body {
 }
+
+header {
+  display: flex;
+  align-items: center;
+}
+
 main {
   display: flex;
   justify-content: space-evenly;
@@ -13,6 +19,7 @@ main {
   height: 100vh;
   color: white;
   background-color: black;
+
 }
 #login {
   display: flex;
@@ -30,4 +37,5 @@ main {
 #botonEntrar {
   width: 60%;
   margin-top: 50px;
+  background-color: #73f340;
 }

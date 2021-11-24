@@ -6,7 +6,7 @@
     1. Descripción
     2. User Definition & User Stories (UX)
     3. Diagrama de flujo
-    4. Maquetado 
+    4. Sketch 
     5. Producto
 
 ---
@@ -48,7 +48,7 @@ La solución es un control de mando de datos, Data Dashboard, que les permita vi
 
 ---
 
-## 4. Maquetado 
+## 4. Sketch 
 
 * Pantalla inicial de LogIn.
 
