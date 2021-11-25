@@ -27,6 +27,7 @@
   button{
    border-color: transparent;
    background-color:transparent;
+   
   }
 
   #a,#i,#c {
@@ -35,7 +36,11 @@
     background-color:transparent;
     margin-top: 3px;
   }
-
+/*
+  #sAju{
+    background-image: url(../assets/imágenes/logoAjus.png);
+  }
+*/
 
   h1{
     color: rgb(255, 255, 255);
