@@ -9,21 +9,31 @@
   }
 
   main{
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    flex-direction: column;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   height: 90vh;
+   color: white;
+   background-color: black;
   }
- 
+  
+  #logoBCS{
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    height: 40vh;  
+  }
+
   button{
    border-color: transparent;
    background-color:transparent;
   }
 
   #a,#i,#c {
-    width: 60%;
-    height: 60%;
+    width: 50%;
+    height: 50%;
     background-color:transparent;
+    margin-top: 3px;
   }
 
 
@@ -32,7 +42,9 @@
     text-align: center;
   }
 
-  @media only screen and (max-width: 150px) {
+
+/*
+  @media only screen and (max-width: 350px) {
     main {
       display: flex;
       justify-content: space-evenly;
@@ -41,3 +53,4 @@
       height: 1vh;
     }
   }
+  */
