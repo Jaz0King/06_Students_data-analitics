@@ -4,11 +4,20 @@
   box-sizing: border-box;
 }
 body {
+  
 }
 
 header {
   display: flex;
   align-items: center;
+}
+
+img{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  height: 50vh;
 }
 
 main {
@@ -19,13 +28,16 @@ main {
   height: 100vh;
   color: white;
   background-color: black;
-
 }
+
 #login {
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   flex-direction: column;
   align-items: center;
 }
+
 .inputs {
   width: 90%;
   height: 2.375rem;
@@ -34,8 +46,28 @@ main {
   background-color: #fff;
   margin: 10px;
 }
+
 #botonEntrar {
   width: 60%;
-  margin-top: 50px;
+  margin-top: 10px;
   background-color: #73f340;
 }
+
+p{
+  font-size:2em;
+}
+
+@media only screen and (max-width: 50px) {
+  main {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 1vh;
+  }
+}
+
+
+
+
+
