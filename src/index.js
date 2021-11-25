@@ -1,6 +1,2 @@
-import { traerPorcentajeCompletado, traerNumeroEstudiantes, numeroEstudiantes } from "./data.js";
-//let x = numeroEstudiantes
-//console.log(x)
-//console.log(traerPorcentajeCompletado())
-//console.log(x)
-traerNumeroEstudiantes("ajusco")
+import { porcentajeCompletado, numeroEstudiantes, renderAlumnos } from "./data.js";
+numeroEstudiantes("ajusco","primera")
