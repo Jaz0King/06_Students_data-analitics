@@ -37,12 +37,32 @@ function render (sede, gen, data) {
   }
 }
 
-export function masSesenta (sede,gen) {
+export function menosSesenta (sede,gen) {
     fetch("../data/students.json")
     .then((response) => response.json())
-    .then((data) => alumnosMasSesenta(sede, gen, data))
+    .then((data) => alumnosMenosSesenta(sede, gen, data))
     .catch((error) => console.log(error))
 }
-function alumnosMasSesenta (sede, gen, data) {
+function alumnosMenosSesenta (sede, gen, data) {
+  for (let i = 0; i<data[sede].generacion[gen].estudiantes.length; i++) {
+    //console.log(data[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado)
+    if(data[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado < 60) {
+      console.log(data[sede].generacion[gen].estudiantes[i].nombre)
+    } else {}
+  }
+}
 
+export function masNoventa (sede,gen) {
+    fetch("../data/students.json")
+    .then((response) => response.json())
+    .then((data) => alumnosMasNoventa(sede, gen, data))
+    .catch((error) => console.log(error))
+}
+function alumnosMasNoventa (sede, gen, data) {
+  for (let i = 0; i<data[sede].generacion[gen].estudiantes.length; i++) {
+    //console.log(data[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado)
+    if(data[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado > 90) {
+      console.log(data[sede].generacion[gen].estudiantes[i].nombre)
+    } else {}
+  }
 }

@@ -1,2 +1,2 @@
-import { porcentajeCompletado, numeroEstudiantes, renderAlumnos } from "./data.js";
-numeroEstudiantes("ajusco","primera")
+import { porcentajeCompletado, numeroEstudiantes, renderAlumnos, menosSesenta, masNoventa } from "./data.js";
+renderAlumnos("ajusco","primera")
