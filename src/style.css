@@ -12,7 +12,7 @@ main {
   width: 100%;
   gap: 1% 1%;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: Document 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
     "header   header   aside"
     "alumnos  alumnos  aside"
@@ -21,8 +21,35 @@ main {
 
 header {
   grid-area: header;
-  background-color: crimson;
+  background-color: rgb(180, 180, 180);
   border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+#portada {
+  border: solid white 1px;
+}
+#botones {
+  display: flex;
+  flex-direction: column;
+}
+#marcoImagen {
+  width: 50%;
+  border: solid white 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  background-image: url('../assets/imágenes/google_maps_icon_130921.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.responsive {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
 }
 aside {
   grid-area: aside;
@@ -33,12 +60,17 @@ aside {
   grid-area: alumnos;
   background-color: darkorange;
   border-radius: 10px;
+  overflow: auto;
+  white-space: nowrap;
+}
+#nombres {
+  border: white solid 3px;
 }
 
 @media only screen and (max-width: 620px) {
   main {
     grid-template-columns: 1fr;
-    grid-template-rows: Document 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr 2fr;
     grid-template-areas:
       "header"
       "aside"
