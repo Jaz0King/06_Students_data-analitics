@@ -21,13 +21,17 @@ main {
 
 header {
   grid-area: header;
-  background-color: crimson;
+  background-color: rgb(180, 180, 180);
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
 }
 #portada {
   border: solid white 1px;
+}
+#botones {
+  display: flex;
+  flex-direction: column;
 }
 #marcoImagen {
   width: 50%;
@@ -56,11 +60,16 @@ aside {
   grid-area: alumnos;
   background-color: darkorange;
   border-radius: 10px;
+  overflow: auto;
+  white-space: nowrap;
+}
+#nombres {
+  border: white solid 3px;
 }
 @media only screen and (max-width: 620px) {
   main {
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr 2fr;
     grid-template-areas:
       "header"
       "aside"
