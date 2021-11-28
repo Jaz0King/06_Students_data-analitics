@@ -67,6 +67,11 @@ aside {
   border: white solid 3px;
 }
 
+iframe{
+  width: 100%;
+  height: 100%;
+}
+
 @media only screen and (max-width: 620px) {
   main {
     grid-template-columns: 1fr;
