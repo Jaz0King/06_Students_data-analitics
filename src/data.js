@@ -6,7 +6,8 @@ export function numeroEstudiantes(sede,gen) {
     .catch((error) => console.log(error));
 }
 function studentsNumber (sede, gen, data) {
-      console.log(data[sede].generacion[gen].estudiantes.length)
+  console.log(data)
+  console.log(data[sede].generacion[gen].estudiantes.length)
 }
 
 export function porcentajeCompletado(sede,gen) {
