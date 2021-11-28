@@ -34,6 +34,7 @@ aside {
   background-color: darkorange;
   border-radius: 10px;
 }
+
 @media only screen and (max-width: 620px) {
   main {
     grid-template-columns: 1fr;
