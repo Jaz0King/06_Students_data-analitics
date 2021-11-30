@@ -55,6 +55,17 @@ aside {
   grid-area: aside;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#pieGraph {
+  height: 50%;
+  position: relative;
+  border: solid 1px greenyellow;
+}
+#datos {
+  border: green solid 2px;
 }
 #alumnos {
   grid-area: alumnos;
@@ -75,10 +86,17 @@ iframe {
 @media only screen and (max-width: 620px) {
   main {
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 1fr 2fr;
+    grid-template-rows: 0.2fr 1fr 1fr;
     grid-template-areas:
       "header"
       "aside"
       "alumnos";
+    height: auto;
+  }
+  header {
+    flex-direction: column;
+  }
+  #marcoImagen {
+    width: 100%;
   }
 }
