@@ -19,23 +19,33 @@
         <section id="portada">
           <h1 id="sede">Sede:</h1>
           <div id="botones">
-            <button type="button" class="btn btn-outline-primary">
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              id="btnPrimera"
+            >
               Primera generación
             </button>
-            <button type="button" class="btn btn-outline-primary">
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              id="btnSegunda"
+            >
               Segunda generación
             </button>
-            <button type="button" class="btn btn-outline-primary">
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              id="btnTercera"
+            >
               Tercera generación
             </button>
           </div>
         </section>
-        <section id="marcoImagen">
-          <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6015.2682977899585!2d-99.1975469513815!3d19.225598784554762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cdfdf6a3ef005d%3A0xb4c2a9c688e66926!2zMTnCsDEzJzI4LjQiTiA5OcKwMTEnMzkuNyJX!5e0!3m2!1ses!2smx!4v1638135188085!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>-->
-        </section>
+        <section id="marcoImagen"></section>
       </header>
       <aside>
-        <p></p>
+        <canvas id="myChart" width="400" height="400"></canvas>
         <img src="" alt="grafica de pastel" />
         <img src="" alt="grafica barras" />
       </aside>
@@ -76,6 +86,46 @@
         </div>
       </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const ctx = document.getElementById("myChart").getContext("2d");
+      const myChart = new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [
+            {
+              label: "# of Votes",
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
     <script src="index.js" type="module"></script>
   </body>
 </html>
