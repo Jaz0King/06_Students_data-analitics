@@ -8,7 +8,10 @@ import { estudiantes, studentsNumber, porcentage, alumnosMasNoventa, alumnosMeno
 
 estudiantes(sede, generacion)
 
-let gen = ('primera', 'segunda', 'tercera')
+let input = document.getElementById('busqueda')
+input.addEventListener('keyup', () => {
+  busquedaAlumnos(sede, generacion)
+})
 
 if (sede == 'ajusco') {
   let mapa = document.getElementById('marcoImagen')
