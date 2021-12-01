@@ -16,10 +16,12 @@ export function estudiantes(sede, gen) {
 }
 function traerDatos(data) {
   arr = data
+  console.log(data)
 }
 export function studentsNumber(sede, gen) {
   console.log(arr[sede].generacion[gen].estudiantes.length)
   let num = document.getElementById('numeroAlumnos')
+  num.innerHTML = `<h6>Alumnos:</h6>`
   num.innerHTML += arr[sede].generacion[gen].estudiantes.length
 }
 
@@ -31,11 +33,13 @@ export function porcentage(sede, gen) {
   x = x / (arr[sede].generacion[gen].estudiantes.length)
   console.log(x)
   let porc = document.getElementById('porcentaje')
+  porc.innerHTML = `<h6>Porcentaje promedio completado:</h6>`
   porc.innerHTML += x
 }
 
 export function alumnosMenosSesenta(sede, gen) {
   let menos60 = document.getElementById('menos60')
+  menos60.innerHTML = `<h6>Alumnos menos 60:</h6>`
   for (let i = 0; i < arr[sede].generacion[gen].estudiantes.length; i++) {
     //console.log(arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado)
     if (arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado < 60) {
@@ -47,6 +51,7 @@ export function alumnosMenosSesenta(sede, gen) {
 
 export function alumnosMasNoventa(sede, gen) {
   let mas90 = document.getElementById('mas90')
+  mas90.innerHTML = `<h6>Alumnos mas 90:</h6>`
   for (let i = 0; i < arr[sede].generacion[gen].estudiantes.length; i++) {
     //console.log(arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado)
     if (arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado > 90) {

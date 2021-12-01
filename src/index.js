@@ -41,14 +41,26 @@ let btnTercera = document.getElementById('btnTercera')
 
 
 btnPrimera.addEventListener('click', () => {
-  busquedaAlumnos(sede, "primera")
   generacion = "primera"
+  busquedaAlumnos(sede, "primera")
+  studentsNumber(sede, generacion)
+  porcentage(sede, generacion)
+  alumnosMasNoventa(sede, generacion)
+  alumnosMenosSesenta(sede, generacion)
 })
 btnSegunda.addEventListener('click', () => {
-  busquedaAlumnos(sede, "segunda")
   generacion = "segunda"
+  busquedaAlumnos(sede, "segunda")
+  studentsNumber(sede, generacion)
+  porcentage(sede, generacion)
+  alumnosMasNoventa(sede, generacion)
+  alumnosMenosSesenta(sede, generacion)
 })
 btnTercera.addEventListener('click', () => {
   busquedaAlumnos(sede, "tercera")
   generacion = "tercera"
+  studentsNumber(sede, generacion)
+  porcentage(sede, generacion)
+  alumnosMasNoventa(sede, generacion)
+  alumnosMenosSesenta(sede, generacion)
 })
