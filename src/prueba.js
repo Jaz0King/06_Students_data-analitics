@@ -2,19 +2,7 @@ let arr = []
 let sede = "ajusco"
 let gen = "primera"
 
-function estudiantes(sede, gen) {
-  //console.log(sede)
-  fetch("../data/students.json")
-    .then((response) => response.json())
-    .then((data) => {
-      ejemplo(sede, gen, data, arr)
-    })
-    .catch((error) => console.log(error));
-}
 
-function ejemplo(sede, gen, data) {
-  arr = data
-}
 estudiantes(sede, gen)
 const resultado = document.getElementById('resultado')
 let busqueda = document.getElementById('busqueda')
@@ -27,6 +15,22 @@ entrada.addEventListener('keyup', () => {
 busqueda.addEventListener('click', () => {
   busquedaAlumnos(arr)
 })
+
+function estudiantes(sede, gen) {
+  //console.log(sede)
+  fetch("../data/students.json")
+    .then((response) => response.json())
+    .then((data) => {
+      ejemplo(sede, gen, data, arr)
+      busquedaAlumnos(arr)
+    })
+    .catch((error) => console.log(error));
+}
+
+function ejemplo(sede, gen, data) {
+  arr = data
+}
+
 
 function busquedaAlumnos(arr) {
   resultado.innerHTML = ''
