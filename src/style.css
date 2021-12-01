@@ -42,10 +42,10 @@ header {
   height: auto;
   margin: 0;
   padding: 0;
-  background-image: url("../assets/imágenes/google_maps_icon_130921.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
+
 .responsive {
   width: 100%;
   max-width: 300px;
@@ -93,9 +93,11 @@ iframe {
       "alumnos";
     height: auto;
   }
+  
   header {
     flex-direction: column;
   }
+
   #marcoImagen {
     width: 100%;
   }

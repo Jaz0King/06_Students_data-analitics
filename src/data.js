@@ -1,7 +1,7 @@
 let arr = []
 
 export function estudiantes(sede, gen) {
-  //console.log(sede)
+  console.log(sede)
   fetch("../data/students.json")
     .then((response) => response.json())
     .then((data) => {
