@@ -47,7 +47,10 @@ btnPrimera.addEventListener('click', () => {
   porcentage(sede, generacion)
   alumnosMasNoventa(sede, generacion)
   alumnosMenosSesenta(sede, generacion)
+  let bgc = document.getElementById('alumnos')
+  bgc.style.background = "#0d6efd"
 })
+
 btnSegunda.addEventListener('click', () => {
   generacion = "segunda"
   busquedaAlumnos(sede, "segunda")
@@ -55,7 +58,10 @@ btnSegunda.addEventListener('click', () => {
   porcentage(sede, generacion)
   alumnosMasNoventa(sede, generacion)
   alumnosMenosSesenta(sede, generacion)
+  let bgc = document.getElementById('alumnos')
+  bgc.style.background = "#198754"
 })
+
 btnTercera.addEventListener('click', () => {
   busquedaAlumnos(sede, "tercera")
   generacion = "tercera"
@@ -63,4 +69,7 @@ btnTercera.addEventListener('click', () => {
   porcentage(sede, generacion)
   alumnosMasNoventa(sede, generacion)
   alumnosMenosSesenta(sede, generacion)
+  let bgc = document.getElementById('alumnos')
+  bgc.style.background = "#dc3545"
 })
+
