@@ -41,11 +41,14 @@ btnPrimera.addEventListener('click', () => {
   busquedaAlumnos(sede, "primera")
   generacion = "primera"
 })
+
 btnSegunda.addEventListener('click', () => {
   busquedaAlumnos(sede, "segunda")
   generacion = "segunda"
 })
+
 btnTercera.addEventListener('click', () => {
   busquedaAlumnos(sede, "tercera")
   generacion = "tercera"
 })
+

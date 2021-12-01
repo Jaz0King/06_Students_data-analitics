@@ -16,6 +16,7 @@ export function estudiantes(sede, gen) {
 }
 function traerDatos(data) {
   arr = data
+ console.log(data)
 }
 export function studentsNumber(sede, gen) {
   console.log(arr[sede].generacion[gen].estudiantes.length)
