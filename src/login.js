@@ -10,5 +10,3 @@ entrar.addEventListener('click', () =>{
         alert("Usuario y/o contraseña incorrectos")
     }
 })
-    
-    

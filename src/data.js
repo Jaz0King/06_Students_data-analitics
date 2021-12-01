@@ -1,5 +1,5 @@
 export function estudiantes(sede, gen) {
-  //console.log(sede)
+  console.log(sede)
   fetch("../data/students.json")
     .then((response) => response.json())
     .then((data) => {
@@ -11,6 +11,7 @@ export function estudiantes(sede, gen) {
     })
     .catch((error) => console.log(error));
 }
+
 function studentsNumber(sede, gen, data) {
   console.log(data)
   console.log(data[sede].generacion[gen].estudiantes.length)
@@ -32,7 +33,11 @@ function porcentage(sede, gen, data) {
 function render(sede, gen, data) {
   console.log(data)
   for (let i = 0; i < data[sede].generacion[gen].estudiantes.length; i++) {
-    console.log(data[sede].generacion[gen].estudiantes[i].nombre)
+    //console.log(data[sede].generacion[gen].estudiantes[i].nombre)
+    let alumnos = document.getElementById("nombres")
+    alumnos.innerHTML += ` <div id="nombres">
+     <p> "${data[sede].generacion[gen].estudiantes[i].nombre}" </p>
+     </div> `
   }
 }
 
@@ -57,3 +62,4 @@ function alumnosMasNoventa(sede, gen, data) {
     } else { }
   }
 }
+
