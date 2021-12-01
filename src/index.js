@@ -43,15 +43,21 @@ let btnTercera = document.getElementById('btnTercera')
 btnPrimera.addEventListener('click', () => {
   busquedaAlumnos(sede, "primera")
   generacion = "primera"
+  let bgc = document.getElementById('alumnos')
+  bgc.style.background = "#0d6efd"
 })
 
 btnSegunda.addEventListener('click', () => {
   busquedaAlumnos(sede, "segunda")
   generacion = "segunda"
+  let bgc = document.getElementById('alumnos')
+  bgc.style.background = "#198754"
 })
 
 btnTercera.addEventListener('click', () => {
   busquedaAlumnos(sede, "tercera")
   generacion = "tercera"
+  let bgc = document.getElementById('alumnos')
+  bgc.style.background = "#dc3545"
 })
 
