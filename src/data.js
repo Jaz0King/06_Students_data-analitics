@@ -11,9 +11,11 @@ export function estudiantes(sede, gen) {
       alumnosMenosSesenta(sede, gen)
       alumnosMasNoventa(sede, gen)
       busquedaAlumnos(sede, gen)
+      
     })
     .catch((error) => console.log(error));
 }
+
 function traerDatos(data) {
   arr = data
   console.log(data)
@@ -60,6 +62,26 @@ export function alumnosMasNoventa(sede, gen) {
     } else { }
   }
 }
+
+function pTemas (sede,gen,id,temas){
+ 
+    let tem = document.getElementById(id)
+    tem.innerHTML = 'prueba'
+    //console.log(temas)
+    for (const tema in temas) {
+      tem.innerHTML += tema
+      console.log(tema)
+      console.log(temas[tema].subtemas)
+        for (const sbTema in temas[tema].subtemas ) {
+            console.log(sbTema)
+        }
+    }
+
+
+
+console.log(sede,gen,id)
+}
+
 export function busquedaAlumnos(sede, gen) {
   let modalDiv = document.getElementById('modalDiv')
   let nombres = document.getElementById('nombres')
@@ -71,33 +93,43 @@ export function busquedaAlumnos(sede, gen) {
     console.log(nombre.indexOf(entrada))
     if (nombre.indexOf(entrada) !== -1) {
       nombres.innerHTML += `
-      <p data-bs-toggle="modal" data-bs-target=#id${i} >${arr[sede].generacion[gen].estudiantes[i].nombre}</p><br>
+      <div class="card" style="width: 18rem;">
+        <h4 class="card-header">${arr[sede].generacion[gen].estudiantes[i].nombre}</h4>
+        <div class="card-body">
+          <h6>${arr[sede].generacion[gen].estudiantes[i].correo} </h6>
+          <h6>Duración: ${arr[sede].generacion[gen].estudiantes[i].progreso.duracionPrograma} hrs.</h6> 
+          <h6>Completado: ${arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado} % </h6> 
+          <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>Información</a>
+        </div>
+      </div>
       `
-      modalDiv.innerHTML += `    <div
-      class="modal fade"
+
+      modalDiv.innerHTML += `    
+      <div class="modal fade"
       id=id`+ `${i}` + `
       data-bs-backdrop="static"
       data-bs-keyboard="false"
       tabindex="-1"
       aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
+      aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">` + `${arr[sede].generacion[gen].estudiantes[i].nombre}` +
-        `</h5>
+            <h5 class="modal-title">` + `${arr[sede].generacion[gen].estudiantes[i].nombre}` + `
+        </h5>
             <button
               type="button"
               class="btn-close"
               data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+              aria-label="Close">
+            </button>
           </div>
           <div class="modal-body">
-            <h5>Type:</h5><p>${i}</p>
-            <h5>Year:</h5><p>${i}</p> </div>
-            <h5>imdbID:</h5><p>${i}</p>
+           <div id="${i}temas">
+            <h5>Temas:</h5><p></p>
+           </div> 
+            <h5>Subtemas:</h5><p>${i}</p> </div>
+            <h5>:</h5><p>${i}</p>
             <div class="modal-footer">
             <button
               type="button"
@@ -111,8 +143,11 @@ export function busquedaAlumnos(sede, gen) {
       </div>
     </div>`
       console.log(arr[sede].generacion[gen].estudiantes[i].nombre)
+      pTemas(sede, gen, `${i}temas`, arr[sede].generacion[gen].estudiantes[i].progreso.temas)
+      
     }
   }
+
   if (nombres.innerHTML === '') {
     nombres.innerHTML += `<li>Nombre no encontrado</li>`
   }

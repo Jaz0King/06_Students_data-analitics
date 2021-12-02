@@ -116,6 +116,8 @@ aside {
 
 #nombres {
   border: white solid 3px;
+  display: flex;
+  flex-wrap: wrap; 
 }
 
 iframe {
