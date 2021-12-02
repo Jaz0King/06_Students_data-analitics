@@ -87,17 +87,23 @@ aside {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 #pieGraph {
-  height: 50%;
+  width: 100%;
   position: relative;
   border: solid 1px greenyellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #datos {
   border: green solid 2px;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 #alumnos {
@@ -120,7 +126,7 @@ iframe {
 @media only screen and (max-width: 620px) {
   main {
     grid-template-columns: 1fr;
-    grid-template-rows: 0.2fr 1fr 1fr;
+    grid-template-rows: 0.2fr 0.5fr 1fr;
     grid-template-areas:
       "header"
       "aside"

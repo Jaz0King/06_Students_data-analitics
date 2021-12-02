@@ -29,11 +29,7 @@ const myChart = new Chart(ctx, {
     ],
   },
   options: {
-    responsive: true,
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
+    responsive: false,
+
   },
 });

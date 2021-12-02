@@ -64,6 +64,7 @@ export function busquedaAlumnos(sede, gen) {
   let modalDiv = document.getElementById('modalDiv')
   let nombres = document.getElementById('nombres')
   nombres.innerHTML = ''
+  modalDiv.innerHTML = ''
   let entrada = document.getElementById('busqueda').value.toLowerCase()
   for (let i = 0; i < arr[sede].generacion[gen].estudiantes.length; i++) {
     let nombre = (arr[sede].generacion[gen].estudiantes[i].nombre).toLowerCase()
