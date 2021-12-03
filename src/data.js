@@ -11,7 +11,7 @@ export function estudiantes(sede, gen) {
       alumnosMenosSesenta(sede, gen)
       alumnosMasNoventa(sede, gen)
       busquedaAlumnos(sede, gen)
-      
+      renderGraph(sede, gen)
     })
     .catch((error) => console.log(error));
 }
@@ -63,23 +63,23 @@ export function alumnosMasNoventa(sede, gen) {
   }
 }
 
-function pTemas (sede,gen,id,temas){
- 
-    let tem = document.getElementById(id)
-    tem.innerHTML = 'prueba'
-    //console.log(temas)
-    for (const tema in temas) {
-      tem.innerHTML += tema
-      console.log(tema)
-      console.log(temas[tema].subtemas)
-        for (const sbTema in temas[tema].subtemas ) {
-            console.log(sbTema)
-        }
+function pTemas(sede, gen, id, temas) {
+
+  let tem = document.getElementById(id)
+  tem.innerHTML = 'prueba'
+  //console.log(temas)
+  for (const tema in temas) {
+    tem.innerHTML += tema
+    console.log(tema)
+    console.log(temas[tema].subtemas)
+    for (const sbTema in temas[tema].subtemas) {
+      console.log(sbTema)
     }
+  }
 
 
 
-console.log(sede,gen,id)
+  console.log(sede, gen, id)
 }
 
 export function busquedaAlumnos(sede, gen) {
@@ -144,11 +144,66 @@ export function busquedaAlumnos(sede, gen) {
     </div>`
       console.log(arr[sede].generacion[gen].estudiantes[i].nombre)
       pTemas(sede, gen, `${i}temas`, arr[sede].generacion[gen].estudiantes[i].progreso.temas)
-      
+
     }
   }
 
   if (nombres.innerHTML === '') {
     nombres.innerHTML += `<li>Nombre no encontrado</li>`
   }
+}
+
+export const ctx = document.getElementById("myChart").getContext("2d");
+export const myChart = new Chart(ctx, {
+  type: "pie",
+  data: {
+    labels: ["mas90%", "menos60%", "entre60y90%"],
+    datasets: [
+      {
+        label: "Estudiantes",
+        data: [12, 19, 2],
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(255, 206, 86, 0.2)"
+        ],
+        borderColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)"
+        ],
+        borderWidth: 1,
+      },
+    ],
+  },
+  options: {
+    responsive: false,
+
+  },
+});
+
+export function renderGraph(sede, gen) {
+  myChart.data.datasets[0].data = []
+  let total = arr[sede].generacion[gen].estudiantes.length
+  let mas90 = 0
+  let menos60 = 0
+  for (let i = 0; i < arr[sede].generacion[gen].estudiantes.length; i++) {
+    //console.log(arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado)
+    if (arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado > 90) {
+      mas90++
+    } else {
+      if (arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado < 60) {
+        menos60++
+      } else {
+
+      }
+    }
+  }
+  let resto = total - mas90 - menos60
+  console.log(resto, mas90, menos60)
+  console.log(myChart.data.datasets[0])
+  myChart.data['datasets'][0].data.push(mas90)
+  myChart.data['datasets'][0].data.push(menos60)
+  myChart.data['datasets'][0].data.push(resto)
+  myChart.update()
 }

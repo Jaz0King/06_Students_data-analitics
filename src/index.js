@@ -1,10 +1,10 @@
 const sede = localStorage['objectToPass']
 console.log(sede)
 const location = document.getElementById('sede')
-location.innerHTML = sede
+location.innerHTML = sede.toUpperCase()
 let generacion = "primera"
 
-import { estudiantes, studentsNumber, porcentage, alumnosMasNoventa, alumnosMenosSesenta, busquedaAlumnos } from "./data.js";
+import { estudiantes, studentsNumber, porcentage, alumnosMasNoventa, alumnosMenosSesenta, busquedaAlumnos, renderGraph } from "./data.js";
 
 estudiantes(sede, generacion)
 
@@ -47,6 +47,7 @@ btnPrimera.addEventListener('click', () => {
   porcentage(sede, generacion)
   alumnosMasNoventa(sede, generacion)
   alumnosMenosSesenta(sede, generacion)
+  renderGraph(sede, generacion)
   let bgc = document.getElementById('alumnos')
   bgc.style.background = "#0d6efd"
 })
@@ -58,6 +59,7 @@ btnSegunda.addEventListener('click', () => {
   porcentage(sede, generacion)
   alumnosMasNoventa(sede, generacion)
   alumnosMenosSesenta(sede, generacion)
+  renderGraph(sede, generacion)
   let bgc = document.getElementById('alumnos')
   bgc.style.background = "#198754"
 })
@@ -69,6 +71,7 @@ btnTercera.addEventListener('click', () => {
   porcentage(sede, generacion)
   alumnosMasNoventa(sede, generacion)
   alumnosMenosSesenta(sede, generacion)
+  renderGraph(sede, generacion)
   let bgc = document.getElementById('alumnos')
   bgc.style.background = "#dc3545"
 })
