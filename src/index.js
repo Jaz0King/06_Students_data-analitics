@@ -40,7 +40,7 @@ if (sede == 'ajusco') {
 let btnPrimera = document.getElementById('btnPrimera')
 let btnSegunda = document.getElementById('btnSegunda')
 let btnTercera = document.getElementById('btnTercera')
-
+let btnComeBack = document.getElementById('button-comeback')
 
 btnPrimera.addEventListener('click', () => {
   generacion = "primera"
@@ -76,5 +76,9 @@ btnTercera.addEventListener('click', () => {
   renderGraph(sede, generacion)
   let bgc = document.getElementById('alumnos')
   bgc.style.background = "#dc3545"
+})
+
+btnComeBack.addEventListener('click', () => {
+  window.location.href = "./sucursales.html"
 })
 
