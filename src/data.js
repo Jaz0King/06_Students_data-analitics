@@ -70,13 +70,13 @@ function pTemas(sede, gen, id, temas) {
   //console.log(temas)
   for (const tema in temas) {
     tem.innerHTML += `` 
-    
+ 
     console.log(tema)
    // console.log(temas[tema].subtemas)
     for (const sbTema in temas[tema].subtemas) {
       stem.innerHTML += `<select class="form-select" aria-label="Default select example">
-      <option selected>`+ tema + ` </option> 
-       <option>  ` +  sbTema + `</option>
+      <option selected>`+ tema + `</option> 
+       <option> ${sbTema} </option>
        </select>
      `
       console.log(sbTema)
