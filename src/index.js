@@ -13,6 +13,8 @@ input.addEventListener('keyup', () => {
   busquedaAlumnos(sede, generacion)
 })
 
+
+
 if (sede == 'ajusco') {
   let mapa = document.getElementById('marcoImagen')
   let logo = document.getElementById('logoLoc')

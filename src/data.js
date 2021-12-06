@@ -64,15 +64,21 @@ export function alumnosMasNoventa(sede, gen) {
 }
 
 function pTemas(sede, gen, id, temas) {
-
+  let stem = document.getElementById(id)
   let tem = document.getElementById(id)
-  tem.innerHTML = 'prueba'
+  
   //console.log(temas)
   for (const tema in temas) {
-    tem.innerHTML += tema
+    tem.innerHTML += `` 
+    
     console.log(tema)
-    console.log(temas[tema].subtemas)
+   // console.log(temas[tema].subtemas)
     for (const sbTema in temas[tema].subtemas) {
+      stem.innerHTML += `<select class="form-select" aria-label="Default select example">
+      <option selected>`+ tema + ` </option> 
+       <option>  ` +  sbTema + `</option>
+       </select>
+     `
       console.log(sbTema)
     }
   }
@@ -125,17 +131,16 @@ export function busquedaAlumnos(sede, gen) {
             </button>
           </div>
           <div class="modal-body">
-           <div id="${i}temas">
-            <h5>Temas:</h5><p></p>
-           </div> 
-            <h5>Subtemas:</h5><p>${i}</p> </div>
-            <h5>:</h5><p>${i}</p>
+          <h5>Temas y Subtemas:</h5>
+          <div id="${i}temas">
+          <div id="${i}subtemas">
+          </div>
+           </div>
             <div class="modal-footer">
             <button
               type="button"
               class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
+              data-bs-dismiss="modal">
               Close
             </button>
           </div>
