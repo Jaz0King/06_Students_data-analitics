@@ -5,7 +5,7 @@
   }
 
   body{
-    background-color: rgb(0, 0, 0);
+    background-image: url(../assets/imágenes/bkg2.png);
   }
 
   main{
@@ -23,7 +23,7 @@
   
   header {
     display: flex;
-    margin-top: 40px;
+    
     align-items: center;
     flex-direction: column;
     height: 50vh;
@@ -33,54 +33,76 @@
 
   img{
     display: flex;
-    margin-top: 40px;
+    margin: 40px;
     align-items: center;
     flex-direction: column;
     height: 50vh;
+    border-radius: 225px;
+    box-shadow:  1px 1px 99px 5px  rgba(8, 216, 39, 0.60);
   }
 
   #contTitle {
     grid-area: contTitle;
     margin: 20px;
+    padding: 30px;
   }
 
   #ajusco {
     grid-area: ajusco;
     display: flex;
-    padding-bottom: 115px;
-    padding-left:215px;
+    flex-direction: column;
     align-items: center;
-    margin-top: 40px;
+    padding: 10px 40px 40px 340px;
+    
+    border-radius: 225px;
   }
 
   #izta {
     grid-area: izta;
     display: flex;
-    padding-left:100px;
-    padding-bottom: 115px;
+    flex-direction: column;
     align-items: center;
-    margin-top: 40px;
+    
+    padding: 10px;
+    border-radius: 225px;
   }
 
   #chapul {
     grid-area: chapul; 
     display: flex;
-    padding-left:20px;
-    padding-bottom: 115px;
-    margin-top: 40px;
-    align-items: center; 
+    flex-direction: column;
+    padding: 10px 340px 40px 40px;
+    align-items: center;
+    border-radius: 225px; 
   }
+
+  #sAju{
+    border-radius: 225px;
+    box-shadow:  1px 1px 99px 30px rgb(209 65 154); 
+    }
+    #sIzt{
+      border-radius: 225px;
+      box-shadow:  1px 1px 99px 38px rgb(72 124 227);;
+    }  
+    #sCha {
+      border-radius: 225px;
+      box-shadow:  1px 1px 99px 30px rgb(186 205 78);;
+    }
 
   h1{
     color: rgb(255, 255, 255);
     text-align: center;
-    margin: 20px;
+    font-family: 'Stick No Bills', sans-serif;
+    text-shadow: 5px 10px 5px rgba(3, 3, 3, 0.6)
+    
   }
 
   h2{
     color: rgb(255, 255, 255);
     text-align: center;
-    margin: 20px;
+    font-family: 'Stick No Bills', sans-serif;
+    font-size: 1.6em;
+    
   }
 
   @media only screen and (max-width: 550px) {
@@ -97,33 +119,41 @@
     }
     
     img {
-        height: 40vh;
-        margin:3px;
+        height: 35vh;
+        margin: 10px;
+        border-radius: 225px;
       }
 
       #ajusco, #izta, #chapul {
         display: flex;
-        padding-left:50px;
-        padding-bottom: 3px;
-        margin-top: 3px;
-        align-items: center; 
+        flex-direction: column;
+        align-items: center;
+        border-radius: 225px; 
+        
+        padding: 3px;
       } 
 
       #contTitle{
-        margin: 3px;
+        margin: 1px;
+        padding: 1px;
       }
 
     input{
-        height: 12vh;
+        height: 15vh;
     }  
 
     header {
-        margin: 3px;
+        
         height: 38vh; 
     }
 
-    h1, h2{
-        margin: 0px;
+    h1{
+        font-size: 5vh; 
+
+    }
+
+    h2{
+      font-size: 4vh;
     }
 
   }
