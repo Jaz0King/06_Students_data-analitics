@@ -28,6 +28,12 @@ header {
   justify-content: space-between;
 }
 
+#sede {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #portada {
   border: solid white 1px;
   width: 30%;
