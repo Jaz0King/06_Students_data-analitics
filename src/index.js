@@ -1,5 +1,5 @@
 const sede = localStorage['objectToPass']
-console.log(sede)
+//console.log(sede)
 const location = document.getElementById('sede')
 location.innerHTML = sede.toUpperCase()
 let generacion = "primera"

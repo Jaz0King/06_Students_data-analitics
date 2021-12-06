@@ -28,14 +28,17 @@ header {
   justify-content: space-between;
 }
 
-h1 {
-    color: rgb(255, 255, 255);
-    text-align: center;
-    font-family: 'Stick No Bills', sans-serif;
-    text-shadow: 5px 10px 5px rgba(3, 3, 3, 0.6) 
+#sede {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-
+h1 {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-family: 'Stick No Bills', sans-serif;
+  text-shadow: 5px 10px 5px rgba(3, 3, 3, 0.6) 
+}
 
 #portada {
   
