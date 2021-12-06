@@ -67,11 +67,21 @@ function pTemas(sede, gen, id, temas) {
   let temasYSub = document.getElementById(id)
   console.log(temas)
   let tempString = ''
+  tempString += '<div class="accordion" id="accordionPanelsStayOpenExample">'
   for (const tema in temas) {
-    tempString += `<select class="form-select" aria-label="Default select example">`
+    //tempString += `<select class="form-select" aria-label="Default select example">`
+    tempString +=
+      `<div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+       ${tema} 
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+          <div class="accordion-body">`
     console.log("*")
     console.log(tema)
-    tempString += `<option selected>${tema} </option>`
+    //tempString += `<option selected>${tema} </option>`
     //console.log(temas[tema].subtemas)
     let valores = Object.values(temas[tema].subtemas)
     let claves = Object.keys(temas[tema].subtemas)
@@ -82,14 +92,24 @@ function pTemas(sede, gen, id, temas) {
       console.log('     Completado: ' + valores[i].completado)
       console.log('     DuracionSubTema: ' + valores[i].duracionSubtema)
       console.log('     Tipo: ' + valores[i].tipo)
-      tempString += `<option> ${claves[i]}</option>`
+      //  tempString += `<option> ${claves[i]}</option>`
+      tempString += `<strong>   ${claves[i]}</strong> 
+      <p> Completado: ${valores[i].completado}</p>
+      <p> DuracionSubTema: ${valores[i].duracionSubtema}</p>
+      <p> Tipo: ${valores[i].tipo}</p>`
     }
     /* 
     */
     console.log("----------")
-    tempString += `</select>`
-    temasYSub.innerHTML = tempString
+    tempString += `  </div>
+       </div>
+  </div>`
+    //tempString += `</select>`
+    //temasYSub.innerHTML = tempString
   }
+  tempString += '</div>'
+  console.log(tempString)
+  temasYSub.innerHTML = tempString
 }
 
 export function busquedaAlumnos(sede, gen) {
