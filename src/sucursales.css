@@ -82,11 +82,11 @@
     }
     #sIzt{
       border-radius: 225px;
-      box-shadow:  1px 1px 99px 38px rgb(72 124 227);;
+      box-shadow:  1px 1px 99px 38px rgb(72 124 227);
     }  
     #sCha {
       border-radius: 225px;
-      box-shadow:  1px 1px 99px 30px rgb(186 205 78);;
+      box-shadow:  1px 1px 99px 30px rgb(186 205 78);
     }
 
   h1{
@@ -129,7 +129,6 @@
         flex-direction: column;
         align-items: center;
         border-radius: 225px; 
-        
         padding: 3px;
       } 
 
