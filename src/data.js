@@ -64,82 +64,130 @@ export function alumnosMasNoventa(sede, gen) {
 }
 
 function pTemas(sede, gen, id, temas) {
+  console.log(temas)
   let temasYSub = document.getElementById(id)
-  //console.log(temas)
-  let tempString = ''
-  let secSting = ''
-  let thrSting = ''
-
-  tempString += ' <div class="accordion" id="accordionPanelsStayOpenExample">'
+  let tema1 = ''
+  let tema2 = ''
+  let tema3 = ''
   for (const tema in temas) {
-    //tempString += `<select class="form-select" aria-label="Default select example">`
-    tempString +=
-      `<div class="accordion-item">
-    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-      ${tema} ${temas[tema].duracionTema}min.  /${temas[tema].duracionTema} 
-      </button>
-    </h2>
-    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-          <div class="accordion-body">`
-    //console.log("*")
-    //console.log(tema)
-    //tempString += `<option selected>${tema} </option>`
-    //console.log(temas[tema].subtemas)
     let valores = Object.values(temas[tema].subtemas)
     let claves = Object.keys(temas[tema].subtemas)
-    //console.log(claves)
     //console.log(valores)
+    //console.log(claves)
     for (let i = 0; i < valores.length; i++) {
-
-      //console.log('   ' + claves[i])
-      //console.log('     Completado: ' + valores[i].completado)
-      //console.log('     DuracionSubTema: ' + valores[i].duracionSubtema)
-      //console.log('     Tipo: ' + valores[i].tipo)
-      //  tempString += `<option> ${claves[i]}</option>`
-      tempString += `<strong>   ${claves[i]}</strong> 
-      <p> Completado: ${valores[i].completado}</p>
-      <p> DuracionSubTema: ${valores[i].duracionSubtema}</p>
-      <p> Tipo: ${valores[i].tipo}</p>`
-
+      if (tema == "01-Introduccion-a-programacion") {
+        //console.log("tema1")
+        tema1 += `<strong>   ${claves[i]}</strong><br>`
+        tema1 += `Completado: ${valores[i].completado}<br>`
+        tema1 += `DuracionSubTema: ${valores[i].duracionSubtema}<br>`
+        tema1 += `Tipo: ${valores[i].tipo}<br>`
+      } else {
+        if (tema == "02-Variables-y-tipo-de-datos") {
+          //console.log("tema2")
+          tema2 += `<strong>   ${claves[i]}</strong><br>`
+          tema2 += `Completado: ${valores[i].completado}<br>`
+          tema2 += `DuracionSubTema: ${valores[i].duracionSubtema}<br>`
+          tema2 += `Tipo: ${valores[i].tipo}<br>`
+        } else {
+          //console.log("tema3")
+          tema3 += `<strong>   ${claves[i]}</strong><br>`
+          tema3 += `Completado: ${valores[i].completado}<br>`
+          tema3 += `DuracionSubTema: ${valores[i].duracionSubtema}<br>`
+          tema3 += `Tipo: ${valores[i].tipo}<br>`
+        }
+      }
     }
-
-
-    //console.log("----------")
-    tempString += `  </div>
-       </div>
-  </div>`
-    //tempString += `</select>`
-    //temasYSub.innerHTML = tempString
   }
-  tempString += '</div>'
-  //console.log(tempString)
-  temasYSub.innerHTML = tempString
+  temasYSub.innerHTML = `
+  <div class="accordion" id="accordionTemas">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        01-Introduccion-a-programacion ${temas["01-Introduccion-a-programacion"].porcentajeCompletado}% ${temas["01-Introduccion-a-programacion"].duracionTemaCompletado}/${temas["01-Introduccion-a-programacion"].duracionTema}
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        ${tema1}
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        02-Variables-y-tipo-de-datos ${temas["02-Variables-y-tipo-de-datos"].porcentajeCompletado}% ${temas["02-Variables-y-tipo-de-datos"].duracionTemaCompletado}/${temas["02-Variables-y-tipo-de-datos"].duracionTema}
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        ${tema2}
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        03-UX ${temas["03-UX"].porcentajeCompletado}% ${temas["03-UX"].duracionTemaCompletado}/${temas["03-UX"].duracionTema}
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        ${tema3}
+      </div>
+    </div>
+  </div>
+</div>
+  `
 }
 
 function pCompletado(sede, gen, id, temas) {
-  console.log(temas)
+  //console.log(temas)
   let completadoYnoCompletado = document.getElementById(id)
   let completadoString = ''
   let noCompletadoString = ''
   for (const tema in temas) {
     let valores = Object.values(temas[tema].subtemas)
     let claves = Object.keys(temas[tema].subtemas)
-    console.log(valores)
-    console.log(claves)
+    //console.log(valores)
+    //console.log(claves)
     for (let i = 0; i < valores.length; i++) {
       if (valores[i].completado == 1) {
-        console.log("completados" + claves[i])
+        //console.log("completados" + claves[i])
         completadoString += claves[i] + '<br>'
       } else {
-        console.log("no completados" + claves[i])
+        //console.log("no completados" + claves[i])
         noCompletadoString += claves[i] + '<br>'
       }
     }
   }
-
+  /*
   completadoYnoCompletado.innerHTML += `
-  <div class="accordion" id="accordionPanelsStayOpenExample">
+<div class="accordion accordion-flush" id="accordionFlushExample">
+<div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        Accordion Item #2
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+    </div>
+  </div>
+</div>
+  `
+  */
+  completadoYnoCompletado.innerHTML += `
+  <div class="accordion" id="accordionCompletado">
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -169,35 +217,35 @@ function pCompletado(sede, gen, id, temas) {
 }
 
 function sTipo(sede, gen, id, temas) {
-  console.log(temas)
+  //console.log(temas)
   let tipos = document.getElementById(id)
   let ejercicio = ' '
-  let lectura = ' ' 
-  let quiz = ' ' 
+  let lectura = ' '
+  let quiz = ' '
 
   for (const tema in temas) {
     let valores = Object.values(temas[tema].subtemas)
     let claves = Object.keys(temas[tema].subtemas)
-    console.log(valores)
-    console.log(claves)
+    //console.log(valores)
+    //console.log(claves)
     for (let i = 0; i < valores.length; i++) {
       if (valores[i].tipo == 'lectura') {
-        console.log("lecturas" + claves[i])
+        //console.log("lecturas" + claves[i])
         lectura += claves[i] + '<br>'
       } else {
         if (valores[i].tipo == 'ejercicio') {
-        console.log("ejercicios" + claves[i])
-        ejercicio += claves[i] + '<br>'
-       } else {
-         console.log("quiz" + claves[i])
-         quiz += claves[i] + '<br>'
-       }
+          //console.log("ejercicios" + claves[i])
+          ejercicio += claves[i] + '<br>'
+        } else {
+          //console.log("quiz" + claves[i])
+          quiz += claves[i] + '<br>'
+        }
       }
     }
   }
 
   tipos.innerHTML += `
-  <div class="accordion" id="accordionPanelsStayOpenExample">
+  <div class="accordion" id="accordionTipo">
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -235,7 +283,6 @@ function sTipo(sede, gen, id, temas) {
     </div>
   </div>
 </div>`
-
 }
 
 
