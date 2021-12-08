@@ -74,7 +74,7 @@ function pTemas(sede, gen, id, temas) {
       `<div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-       ${tema} 
+      ${tema} ${temas[tema].duracionTema}min.  /${temas[tema].duracionTema} 
       </button>
     </h2>
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
@@ -85,8 +85,8 @@ function pTemas(sede, gen, id, temas) {
     //console.log(temas[tema].subtemas)
     let valores = Object.values(temas[tema].subtemas)
     let claves = Object.keys(temas[tema].subtemas)
-    //console.log(claves)
-    //console.log(valores)
+    console.log(claves)
+    console.log(valores)
     for (let i = 0; i < valores.length; i++) {
       console.log('   ' + claves[i])
       console.log('     Completado: ' + valores[i].completado)
@@ -97,6 +97,12 @@ function pTemas(sede, gen, id, temas) {
       <p> Completado: ${valores[i].completado}</p>
       <p> DuracionSubTema: ${valores[i].duracionSubtema}</p>
       <p> Tipo: ${valores[i].tipo}</p>`
+
+      
+
+
+
+
     }
    
     console.log("----------")

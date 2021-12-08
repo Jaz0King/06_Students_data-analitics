@@ -37,27 +37,37 @@ h1 {
   color: rgb(255, 255, 255);
   text-align: center;
   font-family: 'Stick No Bills', sans-serif;
-  text-shadow: 5px 10px 5px rgba(3, 3, 3, 0.6) 
+  text-shadow: 5px 10px 5px rgba(3, 3, 3, 0.6); 
+  padding: 10px;
 }
 
 #portada {
-  
+  padding: 10px;
   width: 30%;
 }
 
 #botones {
   display: flex;
   flex-direction: column;
+  
 }
 
 .btn {
-  background-color: rgb(2, 7, 7);
+  background-color: rgb(31, 31, 31);
+  margin: 10px;
+}
+
+button-addon2 {
+  background-color: rgb(31, 31, 31);
+  width: 3px;
+
 }
 
 
 
 #marcoImagen {
-  width: 80%;
+  width: 50%;
+  height: 70%;
   
   display: flex;
   justify-content: center;
@@ -72,7 +82,6 @@ h1 {
 
 #lock {
   width: 30%;
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -101,21 +110,23 @@ img {
 
 aside {
   grid-area: aside;
-  background-color: rgb(255, 255, 255);
+  background-color: transparent;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
 
 #pieGraph {
   width: 100%;
   position: relative;
-  border: solid 1px greenyellow;
+  border: solid 4px rgb(158, 156, 156);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
 }
 
 #datos {
@@ -145,9 +156,13 @@ aside {
   justify-content: center;
 }
 
+#card {
+  color: #fff;
+}
+
 iframe {
   width: 100%;
-  height: 100%;
+  height: 90%;
   border-radius: 15px;
 }
 
