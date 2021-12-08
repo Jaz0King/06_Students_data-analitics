@@ -99,40 +99,40 @@ function pTemas(sede, gen, id, temas) {
     }
   }
   temasYSub.innerHTML = `
-  <div class="accordion" id="accordionTemas">
+  <div class="accordion" id="accordionExample1${id}">
   <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        01-Introduccion-a-programacion ${temas["01-Introduccion-a-programacion"].porcentajeCompletado}% ${temas["01-Introduccion-a-programacion"].duracionTemaCompletado}/${temas["01-Introduccion-a-programacion"].duracionTema}
+    <h2 class="accordion-header" id="headingOne${id}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne${id}" aria-expanded="false" aria-controls="collapseOne${id}">
+        Introduccion-a-programacion ${temas["01-Introduccion-a-programacion"].porcentajeCompletado}% ${temas["01-Introduccion-a-programacion"].duracionTemaCompletado}/${temas["01-Introduccion-a-programacion"].duracionTema}
       </button>
     </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+    <div id="collapseOne${id}" class="accordion-collapse collapse" aria-labelledby="headingOne${id}" data-bs-parent="#accordionExample1${id}">
       <div class="accordion-body">
-        ${tema1}
+      ${tema1}
       </div>
     </div>
   </div>
   <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        02-Variables-y-tipo-de-datos ${temas["02-Variables-y-tipo-de-datos"].porcentajeCompletado}% ${temas["02-Variables-y-tipo-de-datos"].duracionTemaCompletado}/${temas["02-Variables-y-tipo-de-datos"].duracionTema}
+    <h2 class="accordion-header" id="headingTwo${id}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo${id}" aria-expanded="false" aria-controls="collapseTwo${id}">
+        Variables-y-tipo-de-datos ${temas["02-Variables-y-tipo-de-datos"].porcentajeCompletado}% ${temas["02-Variables-y-tipo-de-datos"].duracionTemaCompletado}/${temas["02-Variables-y-tipo-de-datos"].duracionTema}
       </button>
     </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+    <div id="collapseTwo${id}" class="accordion-collapse collapse" aria-labelledby="headingTwo${id}" data-bs-parent="#accordionExample1${id}">
       <div class="accordion-body">
-        ${tema2}
+      ${tema2}
       </div>
     </div>
   </div>
   <div class="accordion-item">
-    <h2 class="accordion-header" id="headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        03-UX ${temas["03-UX"].porcentajeCompletado}% ${temas["03-UX"].duracionTemaCompletado}/${temas["03-UX"].duracionTema}
+    <h2 class="accordion-header" id="headingThree${id}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree${id}" aria-expanded="false" aria-controls="collapseThree${id}">
+        UX ${temas["03-UX"].porcentajeCompletado}% ${temas["03-UX"].duracionTemaCompletado}/${temas["03-UX"].duracionTema}
       </button>
     </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+    <div id="collapseThree${id}" class="accordion-collapse collapse" aria-labelledby="headingThree${id}" data-bs-parent="#accordionExample1${id}">
       <div class="accordion-body">
-        ${tema3}
+      ${tema3}
       </div>
     </div>
   </div>
@@ -160,60 +160,35 @@ function pCompletado(sede, gen, id, temas) {
       }
     }
   }
-  /*
+
   completadoYnoCompletado.innerHTML += `
-<div class="accordion accordion-flush" id="accordionFlushExample">
-<div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-        Accordion Item #2
-      </button>
-    </h2>
-    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-        Accordion Item #3
-      </button>
-    </h2>
-    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-    </div>
-  </div>
-</div>
-  `
-  */
-  completadoYnoCompletado.innerHTML += `
-  <div class="accordion" id="accordionCompletado">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+  <div class="accordion" id="accordionCompletadoYNo${id}">
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFour${id}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour${id}" aria-expanded="false" aria-controls="collapseFour${id}">
         Completados
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+    <div id="collapseFour${id}" class="accordion-collapse collapse" aria-labelledby="headingTwo${id}" data-bs-parent="#accordionCompletadoYNo${id}">
       <div class="accordion-body">
-       ${completadoString} 
+        ${completadoString}
       </div>
     </div>
   </div>
   <div class="accordion-item">
-    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+    <h2 class="accordion-header" id="headingFive${id}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive${id}" aria-expanded="false" aria-controls="collapseFive${id}">
         No completados
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+    <div id="collapseFive${id}" class="accordion-collapse collapse" aria-labelledby="headingThree${id}" data-bs-parent="#accordionCompletadoYNo${id}">
       <div class="accordion-body">
         ${noCompletadoString}
       </div>
     </div>
   </div>
-</div>`
-
+</div>
+  `
 }
 
 function sTipo(sede, gen, id, temas) {
@@ -243,7 +218,47 @@ function sTipo(sede, gen, id, temas) {
       }
     }
   }
-
+  tipos.innerHTML += `
+<div class="accordion" id="accordionExample${id}">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingUno${id}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUno${id}" aria-expanded="false" aria-controls="collapseUno${id}">
+       Lecturas 
+      </button>
+    </h2>
+    <div id="collapseUno${id}" class="accordion-collapse collapse" aria-labelledby="headingUno${id}" data-bs-parent="#accordionExample${id}">
+      <div class="accordion-body">
+      ${lectura}
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingDos${id}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDos${id}" aria-expanded="false" aria-controls="collapseDos${id}">
+        Ejercicios
+      </button>
+    </h2>
+    <div id="collapseDos${id}" class="accordion-collapse collapse" aria-labelledby="headingDos${id}" data-bs-parent="#accordionExample${id}">
+      <div class="accordion-body">
+      ${ejercicio}
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTres${id}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTres${id}" aria-expanded="false" aria-controls="collapseTres${id}">
+        Quizzes
+      </button>
+    </h2>
+    <div id="collapseTres${id}" class="accordion-collapse collapse" aria-labelledby="headingTres${id}" data-bs-parent="#accordionExample${id}">
+      <div class="accordion-body">
+      ${quiz}
+      </div>
+    </div>
+  </div>
+</div>
+  `
+  /*
   tipos.innerHTML += `
   <div class="accordion" id="accordionTipo">
   <div class="accordion-item">
@@ -283,6 +298,7 @@ function sTipo(sede, gen, id, temas) {
     </div>
   </div>
 </div>`
+*/
 }
 
 
