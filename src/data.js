@@ -67,7 +67,10 @@ function pTemas(sede, gen, id, temas) {
   let temasYSub = document.getElementById(id)
   //console.log(temas)
   let tempString = ''
-  tempString += '<div class="accordion" id="accordionPanelsStayOpenExample">'
+  let secSting = ''
+  let thrSting = ''
+
+  tempString += ' <div class="accordion" id="accordionPanelsStayOpenExample">'
   for (const tema in temas) {
     //tempString += `<select class="form-select" aria-label="Default select example">`
     tempString +=
@@ -88,6 +91,7 @@ function pTemas(sede, gen, id, temas) {
     //console.log(claves)
     //console.log(valores)
     for (let i = 0; i < valores.length; i++) {
+
       //console.log('   ' + claves[i])
       //console.log('     Completado: ' + valores[i].completado)
       //console.log('     DuracionSubTema: ' + valores[i].duracionSubtema)
@@ -134,7 +138,6 @@ function pCompletado(sede, gen, id, temas) {
     }
   }
 
-
   completadoYnoCompletado.innerHTML += `
   <div class="accordion" id="accordionPanelsStayOpenExample">
   <div class="accordion-item">
@@ -164,6 +167,78 @@ function pCompletado(sede, gen, id, temas) {
 </div>`
 
 }
+
+function sTipo(sede, gen, id, temas) {
+  console.log(temas)
+  let tipos = document.getElementById(id)
+  let ejercicio = ' '
+  let lectura = ' ' 
+  let quiz = ' ' 
+
+  for (const tema in temas) {
+    let valores = Object.values(temas[tema].subtemas)
+    let claves = Object.keys(temas[tema].subtemas)
+    console.log(valores)
+    console.log(claves)
+    for (let i = 0; i < valores.length; i++) {
+      if (valores[i].tipo == 'lectura') {
+        console.log("lecturas" + claves[i])
+        lectura += claves[i] + '<br>'
+      } else {
+        if (valores[i].tipo == 'ejercicio') {
+        console.log("ejercicios" + claves[i])
+        ejercicio += claves[i] + '<br>'
+       } else {
+         console.log("quiz" + claves[i])
+         quiz += claves[i] + '<br>'
+       }
+      }
+    }
+  }
+
+  tipos.innerHTML += `
+  <div class="accordion" id="accordionPanelsStayOpenExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        Lecturas
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+      <div class="accordion-body">
+       ${lectura} 
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+        Ejercicios
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+      <div class="accordion-body">
+        ${ejercicio}
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+        Quizzes
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+      <div class="accordion-body">
+        ${quiz}
+      </div>
+    </div>
+  </div>
+</div>`
+
+}
+
+
 
 export function busquedaAlumnos(sede, gen) {
   let modalDiv = document.getElementById('modalDiv')
@@ -228,6 +303,7 @@ export function busquedaAlumnos(sede, gen) {
       //console.log(arr[sede].generacion[gen].estudiantes[i].nombre)
       pTemas(sede, gen, `${i}temas`, arr[sede].generacion[gen].estudiantes[i].progreso.temas)
       pCompletado(sede, gen, `${i}completados`, arr[sede].generacion[gen].estudiantes[i].progreso.temas)
+      sTipo(sede, gen, `${i}tipo`, arr[sede].generacion[gen].estudiantes[i].progreso.temas)
     }
   }
 
