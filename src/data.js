@@ -64,7 +64,7 @@ export function alumnosMasNoventa(sede, gen) {
 }
 
 function pTemas(sede, gen, id, temas) {
-  console.log(temas)
+  //console.log(temas)
   let temasYSub = document.getElementById(id)
   let tema1 = ''
   let tema2 = ''
@@ -258,52 +258,26 @@ function sTipo(sede, gen, id, temas) {
   </div>
 </div>
   `
-  /*
-  tipos.innerHTML += `
-  <div class="accordion" id="accordionTipo">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-        Lecturas
-      </button>
-    </h2>
-    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-      <div class="accordion-body">
-       ${lectura} 
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-        Ejercicios
-      </button>
-    </h2>
-    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-      <div class="accordion-body">
-        ${ejercicio}
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-        Quizzes
-      </button>
-    </h2>
-    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-      <div class="accordion-body">
-        ${quiz}
-      </div>
-    </div>
-  </div>
-</div>`
-*/
 }
 
 
 
 export function busquedaAlumnos(sede, gen) {
+  let estudiantes = arr[sede].generacion[gen].estudiantes
+  console.log(estudiantes)
+  estudiantes.sort(function (a, b) {
+    let nameA = a.nombre.toLowerCase()
+    let nameB = b.nombre.toLowerCase()
+    if (nameA < nameB) {
+      return -1
+    }
+    if (nameA > nameB) {
+      return 1
+    }
+    return 0
+  })
+  console.log(estudiantes)
+  console.log(arr)
   let modalDiv = document.getElementById('modalDiv')
   let nombres = document.getElementById('nombres')
   nombres.innerHTML = ''
