@@ -65,7 +65,7 @@ export function alumnosMasNoventa(sede, gen) {
 
 function pTemas(sede, gen, id, temas) {
   let temasYSub = document.getElementById(id)
-  console.log(temas)
+  //console.log(temas)
   let tempString = ''
   tempString += '<div class="accordion" id="accordionPanelsStayOpenExample">'
   for (const tema in temas) {
@@ -79,33 +79,29 @@ function pTemas(sede, gen, id, temas) {
     </h2>
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
           <div class="accordion-body">`
-    console.log("*")
-    console.log(tema)
+    //console.log("*")
+    //console.log(tema)
     //tempString += `<option selected>${tema} </option>`
     //console.log(temas[tema].subtemas)
     let valores = Object.values(temas[tema].subtemas)
     let claves = Object.keys(temas[tema].subtemas)
-    console.log(claves)
-    console.log(valores)
+    //console.log(claves)
+    //console.log(valores)
     for (let i = 0; i < valores.length; i++) {
-      console.log('   ' + claves[i])
-      console.log('     Completado: ' + valores[i].completado)
-      console.log('     DuracionSubTema: ' + valores[i].duracionSubtema)
-      console.log('     Tipo: ' + valores[i].tipo)
+      //console.log('   ' + claves[i])
+      //console.log('     Completado: ' + valores[i].completado)
+      //console.log('     DuracionSubTema: ' + valores[i].duracionSubtema)
+      //console.log('     Tipo: ' + valores[i].tipo)
       //  tempString += `<option> ${claves[i]}</option>`
       tempString += `<strong>   ${claves[i]}</strong> 
       <p> Completado: ${valores[i].completado}</p>
       <p> DuracionSubTema: ${valores[i].duracionSubtema}</p>
       <p> Tipo: ${valores[i].tipo}</p>`
 
-      
-
-
-
-
     }
-   
-    console.log("----------")
+
+
+    //console.log("----------")
     tempString += `  </div>
        </div>
   </div>`
@@ -113,8 +109,60 @@ function pTemas(sede, gen, id, temas) {
     //temasYSub.innerHTML = tempString
   }
   tempString += '</div>'
-  console.log(tempString)
+  //console.log(tempString)
   temasYSub.innerHTML = tempString
+}
+
+function pCompletado(sede, gen, id, temas) {
+  console.log(temas)
+  let completadoYnoCompletado = document.getElementById(id)
+  let completadoString = ''
+  let noCompletadoString = ''
+  for (const tema in temas) {
+    let valores = Object.values(temas[tema].subtemas)
+    let claves = Object.keys(temas[tema].subtemas)
+    console.log(valores)
+    console.log(claves)
+    for (let i = 0; i < valores.length; i++) {
+      if (valores[i].completado == 1) {
+        console.log("completados" + claves[i])
+        completadoString += claves[i] + '<br>'
+      } else {
+        console.log("no completados" + claves[i])
+        noCompletadoString += claves[i] + '<br>'
+      }
+    }
+  }
+
+
+  completadoYnoCompletado.innerHTML += `
+  <div class="accordion" id="accordionPanelsStayOpenExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        Completados
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+      <div class="accordion-body">
+       ${completadoString} 
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+        No completados
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+      <div class="accordion-body">
+        ${noCompletadoString}
+      </div>
+    </div>
+  </div>
+</div>`
+
 }
 
 export function busquedaAlumnos(sede, gen) {
@@ -161,8 +209,11 @@ export function busquedaAlumnos(sede, gen) {
           </div>
           <div class="modal-body">
           <h5>Temas y Subtemas:</h5>
-          <div id="${i}temas">
-           </div>
+          <div id="${i}temas"> </div>
+          <h5>Temas completados y no completados:</h5>
+          <div id="${i}completados"> </div>
+          <h5>Subtemas por tipo:</h5>
+          <div id="${i}tipo"> </div>
             <div class="modal-footer">
             <button
               type="button"
@@ -176,7 +227,7 @@ export function busquedaAlumnos(sede, gen) {
     </div>`
       //console.log(arr[sede].generacion[gen].estudiantes[i].nombre)
       pTemas(sede, gen, `${i}temas`, arr[sede].generacion[gen].estudiantes[i].progreso.temas)
-
+      pCompletado(sede, gen, `${i}completados`, arr[sede].generacion[gen].estudiantes[i].progreso.temas)
     }
   }
 
