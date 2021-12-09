@@ -1,20 +1,19 @@
+//traemos el valor guardado en el almacenaje local del navegador de app.js y lo pasamos a la variable "sede"
 const sede = localStorage['objectToPass']
-//console.log(sede)
 const location = document.getElementById('sede')
+//Se renderea la sede en el html y la primer generación cuando carga la página
 location.innerHTML = sede.toUpperCase()
 let generacion = "primera"
-
+//Se importan las funciones a utilizar en el dashboard desde "data.js"
 import { estudiantes, studentsNumber, porcentage, alumnosMasNoventa, alumnosMenosSesenta, busquedaAlumnos, renderGraph } from "./data.js";
-
+//Se activa la primer función que trae todos los datos y los renderea en el html
 estudiantes(sede, generacion)
-
+//Se ejecuta la función de busqueda de alumnos por nombre cada que pulsamos una letra
 let input = document.getElementById('busqueda')
 input.addEventListener('keyup', () => {
   busquedaAlumnos(sede, generacion)
 })
-
-
-
+//Pinta dinamicamente el logotipo y la ubicación en el mapa de cada sede
 if (sede == 'ajusco') {
   let mapa = document.getElementById('marcoImagen')
   let logo = document.getElementById('logoLoc')
@@ -39,12 +38,12 @@ if (sede == 'ajusco') {
   }
 }
 
-
+//Variables de los botones por generación y de regreso a pantalla de sedes
 let btnPrimera = document.getElementById('btnPrimera')
 let btnSegunda = document.getElementById('btnSegunda')
 let btnTercera = document.getElementById('btnTercera')
 let btnComeBack = document.getElementById('button-comeback')
-
+//Al dar click en una generación ejecuta todas las demás funciones
 btnPrimera.addEventListener('click', () => {
   generacion = "primera"
   busquedaAlumnos(sede, "primera")

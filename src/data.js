@@ -1,7 +1,7 @@
+//Se declara una variable con un arreglo vacío para almacenar los datos del fetch
 let arr = []
-
+//Se exportan las funciones a utilizar a index.js
 export function estudiantes(sede, gen) {
-  //console.log(sede)
   fetch("../data/students.json")
     .then((response) => response.json())
     .then((data) => {
@@ -15,81 +15,79 @@ export function estudiantes(sede, gen) {
     })
     .catch((error) => console.log(error));
 }
-
+//Vaciamos los datos del json en la variable "arr" que contiene el arreglo vacío 
 function traerDatos(data) {
   arr = data
-  //console.log(data)
 }
+//Función para obtener el número de alumnos por generación de la sede
 export function studentsNumber(sede, gen) {
-  //console.log(arr[sede].generacion[gen].estudiantes.length)
   let num = document.getElementById('numeroAlumnos')
   num.innerHTML = `<h6>Alumnos:</h6>`
   num.innerHTML += arr[sede].generacion[gen].estudiantes.length
 }
-
+//Función para obtener el progreso promedio por genración de la sede
 export function porcentage(sede, gen) {
   let x = 0;
   for (let i = 0; i < arr[sede].generacion[gen].estudiantes.length; i++) {
     x += arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado
   }
+  //Se divide a suma del porcentage de cada alumna entre el número de alumnas
   x = x / (arr[sede].generacion[gen].estudiantes.length)
-  //console.log(x)
   let porc = document.getElementById('porcentaje')
   porc.innerHTML = `<h6>Porcentaje promedio completado:</h6>`
   porc.innerHTML += x
 }
-
+//Función para obtener y renderear alumnas con menos del 60% del curso completado
 export function alumnosMenosSesenta(sede, gen) {
   let menos60 = document.getElementById('menos60')
   menos60.innerHTML = `<h6>Alumnos menos 60:</h6>`
   for (let i = 0; i < arr[sede].generacion[gen].estudiantes.length; i++) {
-    //console.log(arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado)
-    if (arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado < 60) {
-      //console.log('menos de sesenta: ' + arr[sede].generacion[gen].estudiantes[i].nombre)
+   //Checa alumna por alumna si su porcentaje completado es menor a 60%
+    if (arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado <= 60) {
+      //Si es menor a 60% lo renderea en el html
       menos60.innerHTML += arr[sede].generacion[gen].estudiantes[i].nombre + `<br>`
     } else { }
   }
 }
-
+//Función para obtener y renderear alumnas con mas del 90% del curso completado
 export function alumnosMasNoventa(sede, gen) {
   let mas90 = document.getElementById('mas90')
   mas90.innerHTML = `<h6>Alumnos mas 90:</h6>`
   for (let i = 0; i < arr[sede].generacion[gen].estudiantes.length; i++) {
-    //console.log(arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado)
-    if (arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado > 90) {
-      //console.log('mas de noventa: ' + arr[sede].generacion[gen].estudiantes[i].nombre)
+    //Checa alumna por alumna si su porcentaje completado es mayor a 90%
+    if (arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado >= 90) {
+      //Si es mayor a 90% lo renderea en el html
       mas90.innerHTML += arr[sede].generacion[gen].estudiantes[i].nombre + `<br>`
     } else { }
   }
 }
-
+//Funcion para obtener información del avance de temas y subtemas de cada alumna
 function pTemas(sede, gen, id, temas) {
-  //console.log(temas)
   let temasYSub = document.getElementById(id)
+  //Se inicializan las variables vacias para concatenar la información de cada tema
   let tema1 = ''
   let tema2 = ''
   let tema3 = ''
+  //Se obtiene la información de cada tema 
   for (const tema in temas) {
+    // Se declaran variables para guardar los valores y las llaves de cada tema en un arreglo 
     let valores = Object.values(temas[tema].subtemas)
     let claves = Object.keys(temas[tema].subtemas)
-    //console.log(valores)
-    //console.log(claves)
+    //Se compara cada tema y se guardan los valores en una cadena de caracteres en las variables vacias
     for (let i = 0; i < valores.length; i++) {
       if (tema == "01-Introduccion-a-programacion") {
-        //console.log("tema1")
+        //Se guardan los valores de cada subtema
         tema1 += `<strong>   ${claves[i]}</strong><br>`
         tema1 += `Completado: ${valores[i].completado}<br>`
         tema1 += `DuracionSubTema: ${valores[i].duracionSubtema}<br>`
         tema1 += `Tipo: ${valores[i].tipo}<br>`
       } else {
         if (tema == "02-Variables-y-tipo-de-datos") {
-          //console.log("tema2")
           tema2 += `<strong>   ${claves[i]}</strong><br>`
           tema2 += `Completado: ${valores[i].completado}<br>`
           tema2 += `DuracionSubTema: ${valores[i].duracionSubtema}<br>`
           tema2 += `Tipo: ${valores[i].tipo}<br>`
         } else {
-          //console.log("tema3")
           tema3 += `<strong>   ${claves[i]}</strong><br>`
           tema3 += `Completado: ${valores[i].completado}<br>`
           tema3 += `DuracionSubTema: ${valores[i].duracionSubtema}<br>`
@@ -98,6 +96,9 @@ function pTemas(sede, gen, id, temas) {
       }
     }
   }
+
+  //Se renderea dinamicamente la información de Temas y Subtemas en un acordion dentro del modal en el html
+  //Se llaman los id´s dinámicos para renderear la información de temas y subtemas de cada alumna
   temasYSub.innerHTML = `
   <div class="accordion" id="accordionExample1${id}">
   <div class="accordion-item">
@@ -139,28 +140,23 @@ function pTemas(sede, gen, id, temas) {
 </div>
   `
 }
-
+//Función para filtrar por temas completados y no completados
 function pCompletado(sede, gen, id, temas) {
-  //console.log(temas)
   let completadoYnoCompletado = document.getElementById(id)
   let completadoString = ''
   let noCompletadoString = ''
   for (const tema in temas) {
     let valores = Object.values(temas[tema].subtemas)
     let claves = Object.keys(temas[tema].subtemas)
-    //console.log(valores)
-    //console.log(claves)
     for (let i = 0; i < valores.length; i++) {
       if (valores[i].completado == 1) {
-        //console.log("completados" + claves[i])
         completadoString += claves[i] + '<br>'
       } else {
-        //console.log("no completados" + claves[i])
         noCompletadoString += claves[i] + '<br>'
       }
     }
   }
-
+  //Se renderea dinámicamente la información de temas completados y no completdos
   completadoYnoCompletado.innerHTML += `
   <div class="accordion" id="accordionCompletadoYNo${id}">
     <div class="accordion-item">
@@ -190,34 +186,32 @@ function pCompletado(sede, gen, id, temas) {
 </div>
   `
 }
-
+//Función para obtener la información de tipos de subtemas
 function sTipo(sede, gen, id, temas) {
-  //console.log(temas)
+  //Se inicializan las variables vacias para concatenar la información de cada subtema
   let tipos = document.getElementById(id)
   let ejercicio = ' '
   let lectura = ' '
   let quiz = ' '
-
+  //Se obtiene la información de cada tema 
   for (const tema in temas) {
+    // Se declaran variables para guardar los valores y las llaves de cada subtema en un arreglo 
     let valores = Object.values(temas[tema].subtemas)
     let claves = Object.keys(temas[tema].subtemas)
-    //console.log(valores)
-    //console.log(claves)
+    //Se guardan los valores de cada tipo de subtema
     for (let i = 0; i < valores.length; i++) {
       if (valores[i].tipo == 'lectura') {
-        //console.log("lecturas" + claves[i])
         lectura += claves[i] + '<br>'
       } else {
         if (valores[i].tipo == 'ejercicio') {
-          //console.log("ejercicios" + claves[i])
           ejercicio += claves[i] + '<br>'
         } else {
-          //console.log("quiz" + claves[i])
           quiz += claves[i] + '<br>'
         }
       }
     }
   }
+  //Se renderea dinámicamente la información de tipos de subtemas
   tipos.innerHTML += `
 <div class="accordion" id="accordionExample${id}">
   <div class="accordion-item">
@@ -260,11 +254,10 @@ function sTipo(sede, gen, id, temas) {
   `
 }
 
-
-
+//Función para buscar por nombre de alumnas 
 export function busquedaAlumnos(sede, gen) {
   let estudiantes = arr[sede].generacion[gen].estudiantes
-  console.log(estudiantes)
+  //Se ordenan alfabeticamente las alumnas rendereadas
   estudiantes.sort(function (a, b) {
     let nameA = a.nombre.toLowerCase()
     let nameB = b.nombre.toLowerCase()
@@ -276,16 +269,16 @@ export function busquedaAlumnos(sede, gen) {
     }
     return 0
   })
-  console.log(estudiantes)
-  console.log(arr)
+  //Se renderean dinamicamente las cards por alumna 
   let modalDiv = document.getElementById('modalDiv')
   let nombres = document.getElementById('nombres')
+  //Se declaran las varibles y rnderean vacias para limpiar las cards y los modales por alumna
   nombres.innerHTML = ''
   modalDiv.innerHTML = ''
   let entrada = document.getElementById('busqueda').value.toLowerCase()
   for (let i = 0; i < arr[sede].generacion[gen].estudiantes.length; i++) {
     let nombre = (arr[sede].generacion[gen].estudiantes[i].nombre).toLowerCase()
-    //console.log(nombre.indexOf(entrada))
+    //Se compara el nombre de la alumna con el valor ingresado en la busqueda por nombre y renderea la card y el modal
     if (nombre.indexOf(entrada) !== -1) {
       nombres.innerHTML += `
       <div class="card" style="width: 18rem;">
@@ -298,7 +291,7 @@ export function busquedaAlumnos(sede, gen) {
         </div>
       </div>
       `
-
+      //Se renderea el modal con la información de temas, subtemas, duración y completitud por alumna 
       modalDiv.innerHTML += `    
       <div class="modal fade"
       id=id`+ `${i}` + `
@@ -337,18 +330,18 @@ export function busquedaAlumnos(sede, gen) {
         </div>
       </div>
     </div>`
-      //console.log(arr[sede].generacion[gen].estudiantes[i].nombre)
+      //Se llaman las funicones para obtener los valores y renderearlos en la card y el modal
       pTemas(sede, gen, `${i}temas`, arr[sede].generacion[gen].estudiantes[i].progreso.temas)
       pCompletado(sede, gen, `${i}completados`, arr[sede].generacion[gen].estudiantes[i].progreso.temas)
       sTipo(sede, gen, `${i}tipo`, arr[sede].generacion[gen].estudiantes[i].progreso.temas)
     }
   }
-
+  //En caso de no encontrar coincidencias por el nombre ingresado se muestra nombre o encontrado
   if (nombres.innerHTML === '') {
     nombres.innerHTML += `<li>Nombre no encontrado</li>`
   }
 }
-
+//Se declaran las variables para expresar los valores en una gráfica dentro del html
 export const ctx = document.getElementById("myChart").getContext("2d");
 export const myChart = new Chart(ctx, {
   type: "pie",
@@ -377,17 +370,21 @@ export const myChart = new Chart(ctx, {
 
   },
 });
-
+//Se renderea la gráfica en el html 
 export function renderGraph(sede, gen) {
+  //Se limpian los datos de la gráfica para volver a graficar
   myChart.data.datasets[0].data = []
+  //Se declaran las variables para reutilizar los valores
   let total = arr[sede].generacion[gen].estudiantes.length
   let mas90 = 0
   let menos60 = 0
+  //Se compara alumna por alumna si tiene de completitud  menos 
   for (let i = 0; i < arr[sede].generacion[gen].estudiantes.length; i++) {
-    //console.log(arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado)
+    //de 90% o mas
     if (arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado > 90) {
       mas90++
     } else {
+      //de 60% o menos
       if (arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado < 60) {
         menos60++
       } else {
@@ -395,9 +392,9 @@ export function renderGraph(sede, gen) {
       }
     }
   }
+  //entre 61% y el 89% de completitud
   let resto = total - mas90 - menos60
-  //console.log(resto, mas90, menos60)
-  //console.log(myChart.data.datasets[0])
+  //Se envian los valores a las variables 
   myChart.data['datasets'][0].data.push(mas90)
   myChart.data['datasets'][0].data.push(menos60)
   myChart.data['datasets'][0].data.push(resto)
