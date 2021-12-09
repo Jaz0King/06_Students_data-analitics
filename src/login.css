@@ -5,7 +5,7 @@
   }
 
   body{
-    background-image: url(./assets/imágenes/bkg.png);
+    background-image: url(../assets/imágenes/bkg2.png);
   }
 
   header {
@@ -15,7 +15,7 @@
     grid-area: header;
   }
 
-  img{
+  #logo{
     display: flex;
     margin-top: 60px;
     align-items: center;
@@ -25,13 +25,21 @@
     box-shadow: 10px 12px 90px 12px  rgba(8, 216, 39, 0.60);
   }
 
+  #tronchaToro {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    flex-direction: column;
+    height: 20vh;
+    border-radius: 225px;
+  }
+
   main {
     display: flex;
     align-items: center;
     flex-direction: column;
     height: 100vh;
     color: white;
-    background-image: url(../assets/imágenes/bkg2.png);
     gap: 1% 1%;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: Document 1fr 1fr 1fr 1fr;
@@ -43,8 +51,9 @@
       "entrar entrar";
   }
 
+
   #login {
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
     grid-area: login;
     align-items: center;
@@ -53,6 +62,7 @@
     font-family: 'Stick No Bills', sans-serif;
     font-size: 1.5em;
   }
+
 
   #inputP1, #inputP2{
     grid-area: pass;
@@ -63,6 +73,7 @@
     background-color: #fff;
     border-radius: 15px;
   }
+
 
   #botonEntrar {
     width: 120px;
