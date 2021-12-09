@@ -12,7 +12,7 @@ entrar.addEventListener('click', () =>{
 //Si no es el "id" y la "contraseña" reproducirá un audio y se mostrara la imagen de la directora        
     } else {    
         video.innerHTML = `
-            <img id="tronchaToro" src="../assets/imágenes/directora.jpeg">
+            <img id="tronchaToro" src="../assets/imágenes/directora.jpeg" alt="Sta. Directora">
             <audio autoplay><source src="../assets/audio/palabraMágica.ogg" type="video/mp4"></audio>
             `
         console.log(error)

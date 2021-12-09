@@ -48,7 +48,8 @@
       "login login"
       "ids ids"
       "pass pass"
-      "entrar entrar";
+      "entrar entrar"
+      "footer footer";
   }
 
 
@@ -58,9 +59,9 @@
     grid-area: login;
     align-items: center;
     flex-direction: column;
-    align-items: center;
     font-family: 'Stick No Bills', sans-serif;
     font-size: 1.5em;
+    text-shadow: 10px 10px 3px rgba(3, 3, 3, 0.8)
   }
 
 
@@ -88,16 +89,42 @@
     font-size:2em;
   }
 
+  #footer {
+    grid-area: footer;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .me-4 {
+    margin: 1rem; 
+  }
+
+  a{
+    font-size:3vh;
+  }
+
   @media only screen and (max-width: 550px) {
-   img {
+    #logo{
+    margin-top: 10px;
+    }
+    #login,#tronchaToro {
+      margin-top: 2px;
+    }
+    img {
       height: 40vh;
     }
+
   }
 
   @media only screen and (max-width: 300px) {
     img {
-       height: 15vh;
+       height: 10vh;
+       margin-top: 2px;
      }
+
+     #footer {
+      margin-top: 2px;
+    }
    }
  
 

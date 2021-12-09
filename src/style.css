@@ -15,9 +15,9 @@ main {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
-    "header  header  aside"
-    "alumnos  alumnos  aside"
-    "alumnos  alumnos  aside";
+    "header header aside"
+    "alumnos alumnos aside"
+    "alumnos alumnos aside";
 }
 
 header {
@@ -33,11 +33,12 @@ header {
   justify-content: center;
   align-items: center;
 }
+
 h1 {
   color: rgb(255, 255, 255);
   text-align: center;
   font-family: 'Stick No Bills', sans-serif;
-  text-shadow: 5px 10px 5px rgba(3, 3, 3, 0.6); 
+  text-shadow: 15px 15px 3px rgba(3, 3, 3, 0.8); 
   padding: 10px;
 }
 
@@ -49,18 +50,17 @@ h1 {
 #botones {
   display: flex;
   flex-direction: column;
-  
 }
 
 .btn {
-  background-color: rgb(31, 31, 31);
+  background-color: rgb(36, 36, 36);
   margin: 10px;
 }
 
-button-addon2 {
-  background-color: rgb(31, 31, 31);
-  width: 3px;
-
+#button-addon2 {
+  background-color: rgb(36, 36, 36);
+ 
+  margin: 0px;
 }
 
 
@@ -68,7 +68,6 @@ button-addon2 {
 #marcoImagen {
   width: 50%;
   height: 70%;
-  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,8 +75,7 @@ button-addon2 {
   margin: 0;
   padding: 0;
   background-size: contain;
-  background-repeat: no-repeat;
-  
+  background-repeat: no-repeat; 
 }
 
 #lock {
@@ -115,13 +113,15 @@ aside {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  font-family: 'Days One', sans-serif;
+  color: #fff;
 }
 
 #pieGraph {
   width: 100%;
+  height: 60vh;
   position: relative;
-  border: solid 4px rgb(158, 156, 156);
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -130,7 +130,7 @@ aside {
 }
 
 #datos {
-  border: green solid 2px;
+  border: #fff solid 4px;
   overflow: auto;
   white-space: nowrap;
 }
@@ -149,7 +149,6 @@ aside {
 }
 
 #nombres {
- 
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -164,6 +163,10 @@ iframe {
   width: 100%;
   height: 90%;
   border-radius: 15px;
+}
+
+footer{
+  grid-area: footer;
 }
 
 @media only screen and (max-width: 620px) {

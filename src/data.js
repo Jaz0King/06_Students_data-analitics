@@ -346,30 +346,32 @@ export const ctx = document.getElementById("myChart").getContext("2d");
 export const myChart = new Chart(ctx, {
   type: "pie",
   data: {
-    labels: ["mas90%", "menos60%", "entre60y90%"],
+    
     datasets: [
       {
         label: "Estudiantes",
         data: [12, 19, 2],
         backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)"
+          "rgba(200, 3, 255, .7)",
+          "rgba(1, 255, 1, .7)",
+          "rgba(255, 255, 0, .7)"
+          
         ],
         borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)"
+          "#fff",
+          "#fff",
+          "#fff"
         ],
-        borderWidth: 1,
+        borderSadow: 1,
       },
     ],
+    labels: ["mas90%", "menos60%", "entre60y90%"],
   },
   options: {
     responsive: false,
-
   },
 });
+
 //Se renderea la gráfica en el html 
 export function renderGraph(sede, gen) {
   //Se limpian los datos de la gráfica para volver a graficar
