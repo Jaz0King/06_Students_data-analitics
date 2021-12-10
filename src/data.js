@@ -43,7 +43,7 @@ export function alumnosMenosSesenta(sede, gen) {
   menos60.innerHTML = `<h6>Alumnos menos 60:</h6>`
   for (let i = 0; i < arr[sede].generacion[gen].estudiantes.length; i++) {
     //Checa alumna por alumna si su porcentaje completado es menor a 60%
-    if (arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado <= 60) {
+    if (arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado < 60) {
       //Si es menor a 60% lo renderea en el html
       menos60.innerHTML += arr[sede].generacion[gen].estudiantes[i].nombre + `<br>`
     } else { }
@@ -55,8 +55,7 @@ export function alumnosMasNoventa(sede, gen) {
   mas90.innerHTML = `<h6>Alumnos mas 90:</h6>`
   for (let i = 0; i < arr[sede].generacion[gen].estudiantes.length; i++) {
     //Checa alumna por alumna si su porcentaje completado es mayor a 90%
-    if (arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado >= 90) {
-      //Si es mayor a 90% lo renderea en el html
+    if (arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado > 90) {
       mas90.innerHTML += arr[sede].generacion[gen].estudiantes[i].nombre + `<br>`
     } else { }
   }
