@@ -42,6 +42,10 @@ h1 {
   padding: 10px;
 }
 
+h2{
+  font-family: 'Stick No Bills', sans-serif;
+  color: rgb(255, 255, 255);
+}
 #portada {
   padding: 10px;
   width: 30%;
@@ -59,7 +63,6 @@ h1 {
 
 #button-addon2 {
   background-color: rgb(36, 36, 36);
- 
   margin: 0px;
 }
 
@@ -121,12 +124,10 @@ aside {
   width: 100%;
   height: 60vh;
   position: relative;
-  
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
 }
 
 #datos {
@@ -166,7 +167,14 @@ iframe {
 }
 
 footer{
-  grid-area: footer;
+  grid-area: aside;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+a{
+  font-size:3vh;
 }
 
 @media only screen and (max-width: 620px) {
