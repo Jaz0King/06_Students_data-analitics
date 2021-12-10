@@ -1,7 +1,7 @@
 # Data Dashboard
 
 ---
-Índice
+## Índice
 
     1. Descripción
     2. User Definition & User Stories (UX)
@@ -13,7 +13,7 @@
 
 ## 1. Descripción
 
-Aplicación web para la visualización y manipulación de datos de los alumnos inscritos en Coding Bootcamp School, especialente para la visualización del progreso de los temas vistos.
+Aplicación web para la visualización y manipulación de datos de los alumnos inscritos en Coding Bootcamp School, especialmente para la visualización del progreso de los temas vistos.
 
 ---
 
@@ -24,15 +24,15 @@ La solución es un control de mando de datos, Data Dashboard, que les permita vi
 
 ## User Stories (UX):
 
-- El usuario debe poder entrar a la aplicación web atravez de culquier dispositivo, smarthphone, tablet, laptop o computadora de escritorio. 
+- El usuario debe poder entrar a la aplicación web atrevés de cualquier dispositivo, smarthphone, tablet, laptop o computadora de escritorio. 
 - El usuario podrá entrar a la aplicación haciendo logIn con su ID y Contraseña.
-- El usuario podrá elegir entrelas 3 sedes diferentes.
-- El usuario podrá visualisar de manera individual cada sede. 
+- El usuario podrá elegir entre las 3 sedes diferentes.
+- El usuario podrá visualizar de manera individual cada sede. 
    - El usuario podrá elegir la generación de alumnos.
    - El usuario podrá buscar por el nombre del alumno.
-   - El usuario podorá visualizar de manera general la base de datos de alumnos con el 60% o menos del 60% de los temas completados.
+   - El usuario podrá visualizar de manera general la base de datos de alumnos con el 60% o menos del 60% de los temas completados.
    - El usuario podrá visualizar de manera general la base de datos de alumnos con 90% o más de los temas completados.
-   - El usuario podrá visualizar de manera individual, por alumno, los temas y subtemas así como su porcentaje completado  tiempo que este le llevó.
+   - El usuario podrá visualizar de manera individual, por alumno, los temas y subtemas así como su porcentaje completado tiempo que este le llevó.
 
 ---
 
@@ -67,7 +67,10 @@ La solución es un control de mando de datos, Data Dashboard, que les permita vi
 ## 5. Producto
 
 * Aquí la liga del producto terminado:
+https://jaz0king.github.io/06_Students_data-analitics/src/login.html
 
+ID: Directora
+Contraseña: 123
 
 ---
 
