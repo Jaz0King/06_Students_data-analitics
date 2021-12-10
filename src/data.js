@@ -42,7 +42,7 @@ export function alumnosMenosSesenta(sede, gen) {
   let menos60 = document.getElementById('menos60')
   menos60.innerHTML = `<h6>Alumnos menos 60:</h6>`
   for (let i = 0; i < arr[sede].generacion[gen].estudiantes.length; i++) {
-   //Checa alumna por alumna si su porcentaje completado es menor a 60%
+    //Checa alumna por alumna si su porcentaje completado es menor a 60%
     if (arr[sede].generacion[gen].estudiantes[i].progreso.porcentajeCompletado <= 60) {
       //Si es menor a 60% lo renderea en el html
       menos60.innerHTML += arr[sede].generacion[gen].estudiantes[i].nombre + `<br>`
@@ -346,7 +346,7 @@ export const ctx = document.getElementById("myChart").getContext("2d");
 export const myChart = new Chart(ctx, {
   type: "pie",
   data: {
-    
+
     datasets: [
       {
         label: "Estudiantes",
@@ -355,20 +355,31 @@ export const myChart = new Chart(ctx, {
           "rgba(200, 3, 255, .7)",
           "rgba(1, 255, 1, .7)",
           "rgba(255, 255, 0, .7)"
-          
+
         ],
         borderColor: [
           "#fff",
           "#fff",
           "#fff"
         ],
+        color: "#000",
         borderSadow: 1,
       },
     ],
-    labels: ["mas90%", "menos60%", "entre60y90%"],
+    labels: ["Mas 90 %", "Menos 60 %", "Entre 60 y 90 %"],
   },
   options: {
     responsive: false,
+    plugins: {
+      legend: {
+        labels: {
+          font: {
+            size: 15
+          },
+          color: 'white'
+        }
+      }
+    }
   },
 });
 
