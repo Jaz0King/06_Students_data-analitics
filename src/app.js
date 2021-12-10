@@ -2,10 +2,9 @@
 let ajusco = document.getElementById('sAju')
 let iztapalapa = document.getElementById('sIzt')
 let chapultepec = document.getElementById('sCha')
-//let bcs = document.getElementById('bcs')
 
-//bcs.innerHTML = `<audio autoplay><source src="../assets/audio/bcs.wav" type="video/mp4"></audio>`
 
+introAudio1 ()
 //Al dar click en el botón de la sede se guarda el valor de la sede en el almacenaje local en el navegador
 ajusco.addEventListener('click', () =>{
     console.log('ajusco')
@@ -28,3 +27,10 @@ chapultepec.addEventListener('click', () =>{
     window.location.href = "./index.html"
     //chapultepec.innerHTML = `<audio autoplay><source src="../assets/audio/chapultepec.mp3" type="video/mp4"></audio>`
 })
+
+function introAudio1 () {
+    const audioIntro1 = document.getElementById("intro1")
+    audioIntro1.volume = 0.8;
+    audioIntro1.play()
+  }
+

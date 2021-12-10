@@ -52,6 +52,7 @@ btnPrimera.addEventListener('click', () => {
   alumnosMasNoventa(sede, generacion)
   alumnosMenosSesenta(sede, generacion)
   renderGraph(sede, generacion)
+  btnAudio ()
   let bgc = document.getElementById('alumnos')
   bgc.style.background = "#0d6efd"
 })
@@ -64,8 +65,9 @@ btnSegunda.addEventListener('click', () => {
   alumnosMasNoventa(sede, generacion)
   alumnosMenosSesenta(sede, generacion)
   renderGraph(sede, generacion)
+  btnAudio ()
   let bgc = document.getElementById('alumnos')
-  bgc.style.background = "#198754"
+  bgc.style.background = "#00bf8f"
 })
 
 btnTercera.addEventListener('click', () => {
@@ -76,6 +78,7 @@ btnTercera.addEventListener('click', () => {
   alumnosMasNoventa(sede, generacion)
   alumnosMenosSesenta(sede, generacion)
   renderGraph(sede, generacion)
+  btnAudio ()
   let bgc = document.getElementById('alumnos')
   bgc.style.background = "#dc3545"
 })
@@ -84,4 +87,10 @@ btnComeBack.addEventListener('click', () => {
   window.location.href = "./sucursales.html"
 })
 
-
+//Función para el efecto de sonido de los botones de generación
+export function btnAudio () {
+  const btnEfect = document.getElementById("btnEfect")
+  btnEfect.volume = 0.8;
+  btnEfect.currentTime = 1;
+  btnEfect.play()
+}

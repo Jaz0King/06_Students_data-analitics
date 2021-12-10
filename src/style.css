@@ -39,11 +39,12 @@ h1 {
   text-align: center;
   font-family: 'Stick No Bills', sans-serif;
   text-shadow: 15px 15px 3px rgba(3, 3, 3, 0.8); 
+  font-size: 7vh;
   padding: 10px;
 }
 
 h2{
-  font-family: 'Stick No Bills', sans-serif;
+ /* font-family: 'Stick No Bills', sans-serif;*/
   color: rgb(255, 255, 255);
 }
 #portada {
@@ -65,8 +66,6 @@ h2{
   background-color: rgb(36, 36, 36);
   margin: 0px;
 }
-
-
 
 #marcoImagen {
   width: 50%;
@@ -116,7 +115,7 @@ aside {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: 'Days One', sans-serif;
+  
   color: #fff;
 }
 
@@ -131,7 +130,6 @@ aside {
 }
 
 #datos {
-  border: #fff solid 4px;
   overflow: auto;
   white-space: nowrap;
 }
@@ -174,7 +172,7 @@ footer{
 }
 
 a{
-  font-size:3vh;
+  font-size:5vh;
 }
 
 @media only screen and (max-width: 620px) {
@@ -196,10 +194,12 @@ a{
   #marcoImagen {
     width: 100%;
   }
+
   #portada {
-    border: solid white 1px;
+    border: solid white .2px;
     width: 100%;
   }
+
   #lock {
     width: 100%;
   }

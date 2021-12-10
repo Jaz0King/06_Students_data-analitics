@@ -1,5 +1,7 @@
 //Se declara una variable con un arreglo vacío para almacenar los datos del fetch
 let arr = []
+introAudio ()
+
 //Se exportan las funciones a utilizar a index.js
 export function estudiantes(sede, gen) {
   fetch("../data/students.json")
@@ -341,6 +343,14 @@ export function busquedaAlumnos(sede, gen) {
     nombres.innerHTML += `<li>Nombre no encontrado</li>`
   }
 }
+
+//Funciones para los efectos de sonido
+function introAudio () {
+  const audioIntro = document.getElementById("intro")
+  audioIntro.volume = 0.8;
+  audioIntro.play()
+}
+
 //Se declaran las variables para expresar los valores en una gráfica dentro del html
 export const ctx = document.getElementById("myChart").getContext("2d");
 export const myChart = new Chart(ctx, {
